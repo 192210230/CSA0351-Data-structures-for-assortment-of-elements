@@ -25,7 +25,6 @@ void Graph_destroy(Graph* g) { free(g); }
 
 void Graph_addEdge(Graph* g, int v, int w)
 {
-	// Add w to v’s list.
 	g->adj[v][w] = true;
 }
 
