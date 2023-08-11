@@ -17,9 +17,7 @@ void main()
    
     struct node *ptr = NULL;  
     int no,i,num;  
-   
     
-      
     int data;  
     char ch;  
         
