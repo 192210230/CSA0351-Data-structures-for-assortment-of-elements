@@ -6,7 +6,6 @@ struct node {
 };
 
 struct node* createNode(int v);
-
 struct Graph {
   int numVertices;
   int* visited;
