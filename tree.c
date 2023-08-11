@@ -21,7 +21,7 @@ void main()
     int data;  
     char ch;  
         
-        do      
+      do      
         {  
             printf("\nSelect one of the operations::");  
             printf("\n1. To insert a new node in the Binary Tree");  
