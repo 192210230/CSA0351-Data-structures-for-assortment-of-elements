@@ -11,24 +11,16 @@ struct Node
 void insertFirst (struct Node **head, int data)
 {
 
-  // dynamically create memory for this newNode
   struct Node *newNode = (struct Node *) malloc (sizeof (struct Node));
 
-  // assign data value
   newNode->data = data;
-  // change the next node of this newNode 
-  // to current head of Linked List
   newNode->next = *head;
-
-  //re-assign head to this newNode
   *head = newNode;
 }
 
 void display (struct Node *node)
 {
   printf ("Linked List : \n");
-
-  // as linked list will end when Node is Null
   while (node != NULL)
     {
       printf ("%d ", node->data);
@@ -40,8 +32,6 @@ void display (struct Node *node)
 int size (struct Node *node)
 {
   int counter=0;
-
-  // as linked list will end when Node is Null
   while (node != NULL)
     {
       node = node->next;
@@ -83,14 +73,11 @@ int main ()
 {
   struct Node *head = NULL;
   int counter,result;
-  // Need '&' i.e. address as we need to change head
   insertFirst (&head, 2);
   insertFirst (&head, 3);
   insertFirst (&head, 4);
   insertFirst (&head, 3);
   insertFirst (&head, 2);
-
-  // no need of '&' as we are not changing head just displaying Linked List
   display (head);
   counter = size(head);
       result = checkPalindrome (head, counter);
