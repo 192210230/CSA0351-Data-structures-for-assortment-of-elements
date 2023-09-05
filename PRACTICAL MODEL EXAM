@@ -1,0 +1,238 @@
+>> 1.) QUADRATIC EQUATION :-
+
+# include<stdio.h>
+# include<math.h>
+
+int main (){
+    
+   float a,b,c;
+   printf("Enter the coefficients");
+   scanf (" %f %f %f", &a, &b, &c);
+    
+   float discriminant;
+   discriminant= b*b – 4*a*c;
+    
+   float root1, root2;
+    
+   if (discriminant>0){
+      root1 = -b+sqrt (discriminant) / (2*a);
+      root2 = -b-sqrt (discriminant) / (2*a);
+      printf (“The roots of the equation are = %f %f”, r1, r2);
+   }
+   else if (discriminant==0){
+      root1 = -b/(2*a);
+      root2 = -b/(2*a);
+      printf (“The roots of the equation are equal having the value =%f %f”, r1, r2);
+   }
+   else
+      printf(“The roots of the equation are imaginary and hence we can not compute them”);
+}
+
+>> 2.) MATRIX MULTIPLICATION,ADDITION,SUBTRACTION :-
+MULTIPLICATION:-
+#include<stdio.h>    
+#include<stdlib.h>  
+int main(){  
+int a[10][10],b[10][10],mul[10][10],r,c,i,j,k;    
+system("cls");  
+printf("enter the number of row=");    
+scanf("%d",&r);    
+printf("enter the number of column=");    
+scanf("%d",&c);    
+printf("enter the first matrix element=\n");    
+for(i=0;i<r;i++)    
+{    
+for(j=0;j<c;j++)    
+{    
+scanf("%d",&a[i][j]);    
+}    
+}    
+printf("enter the second matrix element=\n");    
+for(i=0;i<r;i++)    
+{    
+for(j=0;j<c;j++)    
+{    
+scanf("%d",&b[i][j]);    
+}    
+}    
+    
+printf("multiply of the matrix=\n");    
+for(i=0;i<r;i++)    
+{    
+for(j=0;j<c;j++)    
+{    
+mul[i][j]=0;    
+for(k=0;k<c;k++)    
+{    
+mul[i][j]+=a[i][k]*b[k][j];    
+}    
+}    
+}    
+  
+for(i=0;i<r;i++)    
+{    
+for(j=0;j<c;j++)    
+{    
+printf("%d\t",mul[i][j]);    
+}    
+printf("\n");    
+}    
+return 0;  
+}
+
+ADDITION & SUBTRACTION :-
+#include<stdio.h>
+
+int main()
+{
+
+    int n, m, c, d, first[10][10], second[10][10], sum[10][10], diff[10][10];
+    printf("\nEnter the number of rows and columns of the first matrix \n\n");
+    scanf("%d%d", &m, &n);
+
+    printf("\nEnter the %d elements of the first matrix \n\n", m*n);
+    for(c = 0; c < m; c++)   
+        for(d = 0; d < n; d++)   
+            scanf("%d", &first[c][d]);
+
+    printf("\nEnter the %d elements of the second matrix \n\n", m*n);
+    for(c = 0; c < m; c++)   
+        for(d = 0; d < n; d++)   
+            scanf("%d", &second[c][d]);
+    printf("\n\nThe first matrix is: \n\n");
+    for(c = 0; c < m; c++)   
+    {
+        for(d = 0; d < n; d++) 
+        {
+            printf("%d\t", first[c][d]);
+        }
+    printf("\n");
+    }
+    printf("\n\nThe second matrix is: \n\n");
+    for(c = 0; c < m; c++)
+    {
+        for(d = 0; d < n; d++)
+        {
+            printf("%d\t", second[c][d]);
+        }
+    printf("\n");
+    }
+    for(c = 0; c < m; c++)
+        for(d = 0; d < n; d++)
+            sum[c][d] = first[c][d] + second[c][d];
+    printf("\n\nThe sum of the two entered matrices is: \n\n");
+    for(c = 0; c < m; c++)
+    {
+        for(d = 0; d < n; d++)
+        {
+            printf("%d\t", sum[c][d]);
+        }
+        printf("\n");
+    }
+    for(c = 0; c < m; c++)
+        for(d = 0; d < n; d++)
+            diff[c][d] = first[c][d] - second[c][d];
+    printf("\n\nThe difference(subtraction) of the two entered matrices is: \n\n");
+    for(c = 0; c < m; c++)
+    {
+        for(d = 0; d < n; d++)
+        {
+            printf("%d\t", diff[c][d]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+>> 3). STACK OPERATIONS :-
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 10
+int count = 0;
+struct stack {
+  int items[MAX];
+  int top;
+};
+typedef struct stack st;
+void createEmptyStack(st *s) {
+  s->top = -1;
+}
+int isfull(st *s) {
+  if (s->top == MAX - 1)
+    return 1;
+  else
+    return 0;
+}
+int isempty(st *s) {
+  if (s->top == -1)
+    return 1;
+  else
+    return 0;
+}
+void push(st *s, int newitem) {
+  if (isfull(s)) {
+    printf("STACK FULL");
+  } else {
+    s->top++;
+    s->items[s->top] = newitem;
+  }
+  count++;
+}
+void pop(st *s) {
+  if (isempty(s)) {
+    printf("\n STACK EMPTY \n");
+  } else {
+    printf("Item popped= %d", s->items[s->top]);
+    s->top--;
+  }
+  count--;
+  printf("\n");
+}
+void printStack(st *s) {
+  printf("Stack: ");
+  for (int i = 0; i < count; i++) {
+    printf("%d ", s->items[i]);
+  }
+  printf("\n");
+}
+int main() {
+  int ch;
+  st *s = (st *)malloc(sizeof(st));
+  createEmptyStack(s);
+  push(s, 1);
+  push(s, 2);
+  push(s, 3);
+  push(s, 4);
+  printStack(s);
+  pop(s);
+  printf("\nAfter popping out\n");
+  printStack(s);
+}
+
+>> 4.) INSERTION SORT :-
+
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+ int a[10],i,j,k,n;
+ printf("how many elements you want to sort\n");
+ scanf("%d",&n);
+ printf("\n enter the elements into the array\n");
+ for(i=0;i<n;i++)
+ scanf("%d",&a[i]);
+ for(i=1;i<n;i++)
+ {
+ k=a[i];
+ for(j=i-1;j>=0&&k<a[j];j--)
+ a[j+1]=a[j];
+ a[j+1]=k;
+ }
+ printf("\n\n elements after sorting\n");
+ for(i=0;i<n;i++)
+ printf("%d\n",a[i]);
+ }
+ 
